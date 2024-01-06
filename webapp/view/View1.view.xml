@@ -1,0 +1,63 @@
+<mvc:View controllerName="sap.com.product4.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:fb="sap.ui.comp.filterbar" >
+    <Page id="page" title="{i18n>title}">
+        <content>
+
+        <fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+							<fb:filterGroupItems>
+								<fb:FilterGroupItem name="VehicleNo" label="VehicleNo" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+									<Input id="VehicleNo"/>	
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="VehicleName" label="VehicleName" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+									<Input id="VehicleName"/>	
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="OwnerName" label="OwnerName" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+									<Input id="OwnerName"/>	
+									</fb:control>
+								</fb:FilterGroupItem>
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+        <Table  items="{oVehicleJSONModel>/VehicleDetails}" id="VehicleTable">
+		
+		<columns>
+			<Column>
+				<Text text="Vehicle No" />
+			</Column>
+			<Column>
+				<Text text="Vehicle Name" />
+			</Column>
+			<Column>
+				<Text text="Owner Name" />
+			</Column>
+
+			<Column>
+				<Text text="City" />
+			</Column>
+
+            <Column>
+				<Text text="State" />
+			</Column>
+
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle" type="Navigation" press="onRowPress">
+				<cells>
+					<Text text="{oVehicleJSONModel>VehicleNo}"  />
+					<Text text="{oVehicleJSONModel>VehicleName}" />
+					<Text text="{oVehicleJSONModel>OwnerName}" />
+					<Text text="{oVehicleJSONModel>City}" />
+                    <Text text="{oVehicleJSONModel>State}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+</Table>
+        </content>
+    </Page>
+</mvc:View>

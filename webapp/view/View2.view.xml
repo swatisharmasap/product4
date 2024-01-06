@@ -1,0 +1,65 @@
+
+<mvc:View controllerName="sap.com.product4.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:core="sap.ui.core"
+    	xmlns:f="sap.ui.layout.form">
+    <Page id="page" title="{i18n>title}">
+        <content>
+<f:SimpleForm id="SimpleFormChange354"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Vehicle Deatils"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="VehicleNo" required="true"/>
+<Input id="VehicleNo" placeholder="enter Vehicle No" liveChange="onLiveChangeVehicleNo"/>
+
+<Label text="VehicleName" required="true"/>
+<!-- <Input id="VehicleName" placeholder="enter Vehicle's Name" liveChange="onLiveChangeVehicleName" /> -->
+
+<ComboBox id="VehicleName"
+items="{ 
+    path:'oVehicleModel>/VehicleName'
+ }" >
+ <core:Item key = "{oVehicleModel>VehicleID}" text="{oVehicleModel>VehicleName}"/>
+ </ComboBox>
+
+<Label text="OwnerName" required="true"/>
+<Input id="OwnerName" placeholder="enter Owner Name" liveChange="onLiveChangeOwnerName"/>
+
+<Label text="City" required="true"/>
+<Input id="City" placeholder="enter City's Name" liveChange="onLiveChangeCity"/>
+
+<Label text="State" required="true"/>
+<Input id="State" placeholder="enter State's Name" liveChange="onLiveChangeState"/>
+
+<Label text="Gender" labelFor="groupC" />
+				<RadioButtonGroup id="groupC" valueState="Success" columns="2">
+					<RadioButton text="M" selected="true" />
+					<RadioButton text="F" />
+				</RadioButtonGroup>
+			</f:content>
+		</f:SimpleForm>
+        </content>
+        <footer  >
+        <OverflowToolbar>
+        <ToolbarSpacer/>
+        <Button text="Save" press="onSave"   type="Accept" />
+<Button text="Clear" press="onClear" type="Reject" />
+
+</OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
